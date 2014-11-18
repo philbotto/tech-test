@@ -1,0 +1,40 @@
+﻿<h1>Update {{person.fullName}}</h1>
+
+<form class="form-horizontal" ng-submit="submit(person)">
+    <fieldset>
+        <legend>User Details</legend>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="authorised">Authorised</label>
+            <div class="checkbox col-sm-3">
+                <input type="checkbox" id="authorised" ng-model="person.isAuthorised" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="enabled">Enabled</label>
+            <div class="checkbox col-sm-3">
+                <input type="checkbox" id="enabled" ng-model="person.isEnabled" />
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Favourite Colours</legend>
+
+        <div class="form-group" ng-repeat="colour in colours">
+            <label class="control-label col-sm-2" for="colour_{{colour.colourId}}">{{colour.name}}</label>
+            <div class="checkbox col-sm-3">
+                <input type="checkbox" id="colour_{{colour.colourId}}" ng-checked="isSelected(person.colours, colour)" ng-click="select(person.colours, colour)" />
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <input type="submit" class="btn btn-primary" value="Save Changes" ng-disabled="submitting" />
+            <button class="btn btn-default" ng-click="cancel()" ng-disabled="submitting">Cancel</button>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,22 @@
+﻿<h1>People</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Palindrome</th>
+            <th>Authorised</th>
+            <th>Enabled</th>
+            <th>Colours</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="person in people">
+            <td><a href="/#/people/{{person.personId}}">{{person.fullName}}</a></td>
+            <td yes-no="person.isPalindrome"></td>
+            <td yes-no="person.isAuthorised"></td>
+            <td yes-no="person.isEnabled"></td>
+            <td><span ng-repeat="colour in person.colours">{{colour.name}}{{$last ? '' : ', '}}</span></td>
+        </tr>
+    </tbody>
+</table>
